@@ -1,6 +1,12 @@
-console.log("app.js is running");
+"use strict";
 
-var template = <p> JSX from app.js</p>;
+console.log("app.js is running!!");
+
+var template = React.createElement(
+  "p",
+  null,
+  " JSX from app.js"
+);
 var appRoot = document.getElementById("app");
 
 ReactDOM.render(template, appRoot);
