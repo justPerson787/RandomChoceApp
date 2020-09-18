@@ -19,6 +19,12 @@ var onFormSubmit = function onFormSubmit(e) {
     }
 };
 
+var onMakeDecision = function onMakeDecision() {
+    var randomNum = Math.floor(Math.random() * webpage.options.length);
+    var option = webpage.options[randomNum];
+    alert(option);
+};
+
 var onRemoveOptions = function onRemoveOptions() {
     webpage.options = [];
     render();
@@ -46,9 +52,9 @@ var render = function render() {
             webpage.options.length > 0 ? "Here are the options" : "There are no options"
         ),
         React.createElement(
-            "p",
-            null,
-            webpage.options.length
+            "button",
+            { disabled: webpage.options.length === 0, onClick: onMakeDecision },
+            "What to choose?"
         ),
         React.createElement(
             "button",
