@@ -17,6 +17,11 @@ const onFormSubmit = (e) => {
     }
 };
 
+const onRemoveOptions = () => {
+    webpage.options = [];
+    render();
+};
+
 
 const render = () => {
     //render subtitle only if it actually exists
@@ -26,6 +31,7 @@ const render = () => {
             {webpage.subtitle && <p> {webpage.subtitle}</p>}
             <p>{webpage.options.length > 0? "Here are the options" : "There are no options"}</p>
             <p>{webpage.options.length}</p>
+            <button onClick={onRemoveOptions}>Remove all</button>
             <ol>
                 <li>Item one</li>
                 <li>Item two</li>
@@ -34,6 +40,7 @@ const render = () => {
                 <input type="text" name="option"></input>
                 <button>Add option</button>
             </form>
+            
 
         </div>
     );

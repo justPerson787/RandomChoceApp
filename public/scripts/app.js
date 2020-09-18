@@ -19,6 +19,11 @@ var onFormSubmit = function onFormSubmit(e) {
     }
 };
 
+var onRemoveOptions = function onRemoveOptions() {
+    webpage.options = [];
+    render();
+};
+
 var render = function render() {
     //render subtitle only if it actually exists
     var template = React.createElement(
@@ -44,6 +49,11 @@ var render = function render() {
             "p",
             null,
             webpage.options.length
+        ),
+        React.createElement(
+            "button",
+            { onClick: onRemoveOptions },
+            "Remove all"
         ),
         React.createElement(
             "ol",
