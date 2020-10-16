@@ -1,20 +1,24 @@
 class RandomChoiceApp extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            options: ['one', 'two', 'three3']
+        };
+    }
     render() {
         const title = 'Random Choice App';
-        const subtitle = 'Put your life in the hands of a computer';
-        const options = ['one', 'two', 'three'];
+        const subtitle = 'Put your life in the hands of a computer';        
 
         return (
             <div>
                 <Header title={title} subtitle={subtitle}/>
-                <Action />
-                <Options options={options}/>
+                <Action hasOptions={this.state.options.length > 0}/>
+                <Options options={this.state.options}/>
                 <AddOption />
             </div>
         );
     }
 }
-
 
 class Header extends React.Component {
     render() {
