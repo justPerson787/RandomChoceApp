@@ -5,7 +5,7 @@ class RandomChoiceApp extends React.Component {
         this.handlePick = this.handlePick.bind(this);
         this.handleAddOption = this.handleAddOption.bind(this);
         this.state = {
-            options: []
+            options: props.options
         };
     }
     handleDeleteOptions() {
@@ -53,14 +53,21 @@ class RandomChoiceApp extends React.Component {
         );
     }
 }
+RandomChoiceApp.defaultProps = {
+    options: []
+};
 
 const Header = (props) => {
     return (
         <div>
             <h1>{props.title}</h1>
-            <h2>{props.subtitle}</h2>
+            {props.subtitle && <h2>{props.subtitle}</h2>}             
         </div>
     );    
+};
+
+Header.defaultProps = {
+    title: 'Indecision'
 };
 
 const Action = (props) => {
@@ -126,4 +133,4 @@ class AddOption extends React.Component {
     }
 }
 
-ReactDOM.render(<RandomChoiceApp />, document.getElementById('app'));
+ReactDOM.render(<RandomChoiceApp options={["option 1", "option 2"]}/>, document.getElementById('app'));

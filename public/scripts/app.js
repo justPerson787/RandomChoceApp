@@ -20,7 +20,7 @@ var RandomChoiceApp = function (_React$Component) {
         _this.handlePick = _this.handlePick.bind(_this);
         _this.handleAddOption = _this.handleAddOption.bind(_this);
         _this.state = {
-            options: []
+            options: props.options
         };
         return _this;
     }
@@ -82,6 +82,10 @@ var RandomChoiceApp = function (_React$Component) {
     return RandomChoiceApp;
 }(React.Component);
 
+RandomChoiceApp.defaultProps = {
+    options: []
+};
+
 var Header = function Header(props) {
     return React.createElement(
         "div",
@@ -91,12 +95,16 @@ var Header = function Header(props) {
             null,
             props.title
         ),
-        React.createElement(
+        props.subtitle && React.createElement(
             "h2",
             null,
             props.subtitle
         )
     );
+};
+
+Header.defaultProps = {
+    title: 'Indecision'
 };
 
 var Action = function Action(props) {
@@ -193,4 +201,4 @@ var AddOption = function (_React$Component2) {
     return AddOption;
 }(React.Component);
 
-ReactDOM.render(React.createElement(RandomChoiceApp, null), document.getElementById('app'));
+ReactDOM.render(React.createElement(RandomChoiceApp, { options: ["option 1", "option 2"] }), document.getElementById('app'));
