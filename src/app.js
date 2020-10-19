@@ -9,6 +9,26 @@ class RandomChoiceApp extends React.Component {
             options: props.options
         };
     }
+
+    componentDidMount() {
+        try {
+            const json = localStorage.getItem('options');
+            const options = JSON.parse(json); //return object
+            if (options) {
+                this.setState(() => ({ options }));
+            }
+        } catch(e) {
+            //do nothing (options will fall back to default)
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.options.length !== this.state.options.length) {
+            const json = JSON.stringify(this.state.options); //return string
+            localStorage.setItem('options', json);
+        }
+    }
+
     handleDeleteOptions() {
         this.setState(() => ({ options: [] }));
     }
