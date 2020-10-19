@@ -29,9 +29,7 @@ var RandomChoiceApp = function (_React$Component) {
         key: "handleDeleteOptions",
         value: function handleDeleteOptions() {
             this.setState(function () {
-                return {
-                    options: []
-                };
+                return { options: [] };
             });
         }
     }, {
@@ -48,10 +46,9 @@ var RandomChoiceApp = function (_React$Component) {
             } else if (this.state.options.indexOf(option) > -1) {
                 return "This option already exists";
             }
+
             this.setState(function (prevState) {
-                return {
-                    options: prevState.options.concat(option)
-                };
+                return { options: prevState.options.concat(option) };
             });
         }
     }, {
@@ -201,4 +198,4 @@ var AddOption = function (_React$Component2) {
     return AddOption;
 }(React.Component);
 
-ReactDOM.render(React.createElement(RandomChoiceApp, { options: ["option 1", "option 2"] }), document.getElementById('app'));
+ReactDOM.render(React.createElement(RandomChoiceApp, { options: [] }), document.getElementById('app'));
