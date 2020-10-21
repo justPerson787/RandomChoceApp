@@ -38,7 +38,7 @@ var RandomChoiceApp = function (_React$Component) {
                     });
                 }
             } catch (e) {
-                //do nothing (options will fall back to default)
+                //do nothing 
             }
         }
     }, {
@@ -114,10 +114,9 @@ var RandomChoiceApp = function (_React$Component) {
 
     return RandomChoiceApp;
 }(React.Component);
-
-RandomChoiceApp.defaultProps = {
+/*RandomChoiceApp.defaultProps = {
     options: []
-};
+};*/
 
 var Header = function Header(props) {
     return React.createElement(

@@ -18,7 +18,7 @@ class RandomChoiceApp extends React.Component {
                 this.setState(() => ({ options }));
             }
         } catch(e) {
-            //do nothing (options will fall back to default)
+            //do nothing 
         }
     }
 
@@ -73,9 +73,9 @@ class RandomChoiceApp extends React.Component {
         );
     }
 }
-RandomChoiceApp.defaultProps = {
+/*RandomChoiceApp.defaultProps = {
     options: []
-};
+};*/
 
 const Header = (props) => {
     return (
