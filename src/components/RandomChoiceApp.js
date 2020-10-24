@@ -1,8 +1,8 @@
 import React from 'react';
-import AddOption from '.AddOption';
-import Action from '.Action';
-import Header from '.Header';
-import Options from '.Options';
+import AddOption from './AddOption';
+import Action from './Action';
+import Header from './Header';
+import Options from './Options';
 
 export default class RandomChoiceApp extends React.Component {
     constructor(props) {
