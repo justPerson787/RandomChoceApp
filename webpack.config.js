@@ -26,5 +26,8 @@ module.exports = {
           }
         ]      
       },
-    devtool: 'cheap-module-eval-source-map' //shows source file for debugging
+    devtool: 'eval-cheap-module-source-map', //shows source file for debugging
+    devServer: {
+      contentBase: path.join(__dirname, 'public')
+    }
 };
