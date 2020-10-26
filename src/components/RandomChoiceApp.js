@@ -14,7 +14,10 @@ export default class RandomChoiceApp extends React.Component {
     };
     handlePick = () => {
         const randomNum = Math.floor(Math.random() * this.state.options.length);
-        alert(this.state.options[randomNum]);
+        const option = this.state.options[randomNum];
+        this.setState(() => ({
+            selectedOption: option
+        }));
     };
     handleDeleteOption = (optionToRemove) => {
         this.setState((prevState) => ({
@@ -29,8 +32,11 @@ export default class RandomChoiceApp extends React.Component {
         }   
         this.setState((prevState) => ({ options: prevState.options.concat(option) }));
     };
+    handleClearSelectedOption = (selectedOption) => {
+        this.setState(() => ({ selectedOption: undefined }));
+    };
 
-    componentDidMount() {
+    componentDidMount() {        
         try {
             const json = localStorage.getItem('options');
             const options = JSON.parse(json); //return object
@@ -39,7 +45,7 @@ export default class RandomChoiceApp extends React.Component {
             }
         } catch(e) {
             //do nothing 
-        }
+        }       
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -69,6 +75,8 @@ export default class RandomChoiceApp extends React.Component {
                     handleAddOption = {this.handleAddOption}
                 />
                 <OptionModal
+                    selectedOption = {this.state.selectedOption}
+                    handleClearSelectedOption = {this.handleClearSelectedOption}
                 />
             </div>
         );

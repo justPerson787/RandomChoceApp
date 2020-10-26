@@ -3,10 +3,14 @@ import Modal from 'react-modal';
 
 const OptionModal = (props) => (
         <Modal
-            isOpen={false}
+            isOpen={!!props.selectedOption}
+            onRequestClose={props.handleClearSelectedOption}
             contentLabel="Selected Option"
+            appElement={document.getElementById('app')}
         >
             <h3>Selected Option</h3>
+            {props.selectedOption && <p>{props.selectedOption}</p>}
+            <button onClick = {props.handleClearSelectedOption} >Okay</button>
         </Modal>
     );
 
