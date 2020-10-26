@@ -3,6 +3,7 @@ import AddOption from './AddOption';
 import Action from './Action';
 import Header from './Header';
 import Options from './Options';
+import OptionModal from './OptionModal';
 
 export default class RandomChoiceApp extends React.Component {
     constructor(props) {
@@ -74,6 +75,8 @@ export default class RandomChoiceApp extends React.Component {
                 />
                 <AddOption 
                     handleAddOption = {this.handleAddOption}
+                />
+                <OptionModal
                 />
             </div>
         );
