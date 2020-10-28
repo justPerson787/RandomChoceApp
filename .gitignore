@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+yarn-error.log
 
 # practice files
 src/playground
